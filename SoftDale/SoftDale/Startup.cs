@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Text;
+using SoftDale.Context;
+using SoftDale.Services;
 
 namespace SoftDale
 {
@@ -27,7 +29,11 @@ namespace SoftDale
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddTransient<IApplicationDbContext, ApplicationDbContext>();
+            services.AddTransient<IClienteService, ClienteService>();
+            services.AddTransient<IServicioService, ServicioService>();
+            services.AddTransient<IPaisService, PaisService>();
+            services.AddTransient<IClienteXServicioService, ClienteXServicioService>();
 
             services.AddDbContext<ApplicationDbContext>(
               options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
