@@ -44,18 +44,21 @@ export class AccountService {
   logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("tokenExpiration");
+    this.visibleNavBar();
   }
 
   recibirToken(token: any) {
     localStorage.setItem('token', token.token);
     var getDate = new Date();
-    var getDateNew = new Date(getDate);
-    getDateNew.setMinutes(getDate.getMinutes() + 20);
+    var getDateNew = new Date(getDate.toString());
+    getDateNew.setMinutes(getDate.getMinutes() + 180);
     localStorage.setItem('tokenExpiration', getDateNew.getTime().toString());
     //localStorage.setItem('tokenExpiration', token.expiration);
   }
 
   estaLogueado(): boolean {
+    console.log('esta logueado');
+    this.visibleNavBar();
     if (localStorage.getItem('token')) {
       if (localStorage.getItem('token').length < 2) {
         return false;
@@ -76,6 +79,21 @@ export class AccountService {
     }
     else
       return false;
+  }
+
+  visibleNavBar() {
+    let visibleNavBar = document.getElementsByClassName('visibleNavBar') as HTMLCollectionOf<HTMLElement>;
+    if (localStorage.getItem("token")) {     
+      if (visibleNavBar.length != 0) {
+        visibleNavBar[0].style.visibility = "visible";        
+      }
+    }
+    else {
+      if (visibleNavBar.length != 0) {
+        visibleNavBar[0].style.visibility = "hidden";
+       
+      }
+    }
   }
 
 }

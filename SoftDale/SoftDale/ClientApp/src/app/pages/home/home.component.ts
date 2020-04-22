@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AccountService, private router: Router) { }
 
   ngOnInit() {
+   // this.authService.estaLogueado();
   }
 
   salir() {

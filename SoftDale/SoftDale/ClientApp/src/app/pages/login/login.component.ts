@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AccountService, private router: Router) { }
 
   ngOnInit() {
+    this.auth.logout();
     if (localStorage.getItem('email')) {
       this.usuario.email = localStorage.getItem('email');
       this.recordame = true;
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
       if (this.recordame) {
         localStorage.setItem('email', this.usuario.email);
       }
-
+      
       this.router.navigateByUrl('/home');
     }, (err) => {
       Swal.fire({

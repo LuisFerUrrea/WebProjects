@@ -11,6 +11,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { NavbarComponent } from './pages/shared/navbar/navbar.component';
 import { LoadingComponent } from './pages/shared/loading/loading.component';
+import { ClienteComponent } from './pages/cliente/cliente.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LoadingComponent } from './pages/shared/loading/loading.component';
     LoginComponent,
     RegistroComponent,
     NavbarComponent,
-    LoadingComponent
+    LoadingComponent,
+    ClienteComponent,
+    ClientesComponent
   ],
   imports: [
     //BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
