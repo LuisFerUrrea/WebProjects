@@ -9,13 +9,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { NavbarComponent } from './pages/shared/navbar/navbar.component';
+import { LoadingComponent } from './pages/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,   
     HomeComponent,    
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    NavbarComponent,
+    LoadingComponent
   ],
   imports: [
     //BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
