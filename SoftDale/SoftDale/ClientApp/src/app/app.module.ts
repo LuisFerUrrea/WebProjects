@@ -13,6 +13,8 @@ import { NavbarComponent } from './pages/shared/navbar/navbar.component';
 import { LoadingComponent } from './pages/shared/loading/loading.component';
 import { ClienteComponent } from './pages/cliente/cliente.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    MaterialModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

@@ -1,6 +1,6 @@
 export class ClienteModel {
-  Id: number;
-  Nombre: string;
-  Correo: string;
+  id: number;
+  nombre: string;
+  correo: string;
   tipoAlmacenamiento: string;
 }

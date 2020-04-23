@@ -1,5 +1,5 @@
 export interface MyResponseModel {
-  Success: number;
-  Data: any;
-  Message: string;
+  success: number;
+  data: any;
+  message: string;
 }

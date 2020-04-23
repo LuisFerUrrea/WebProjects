@@ -1,1 +1,45 @@
-<p>clientes works!</p>
+<h1>Listado de clientes</h1>
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button class="btn btn-primary" routerLink="/cliente/nuevo">
+      <i class="fa fa-plus"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+<br>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Id. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+    </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="correo">
+      <mat-header-cell *matHeaderCellDef> Correo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.correo}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef> Editar / Eliminar </mat-header-cell>
+      <mat-cell *matCellDef="let element;  let j = index;">
+        <button mat-raised-button class="btn btn-primary" focusable="false" [routerLink]="['/cliente', element.id ]">
+          <i class="fa fa-pencil"></i>          
+        </button>
+        <button mat-raised-button color="warn" focusable="false" (click)="borrarCliente(element.id,element.nombre)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>
